@@ -2,6 +2,7 @@ import Button from "../Button/Button";
 import FindUs from "../FindUs/FindUs";
 import Heading from "../Heading/Heading";
 import { AiOutlineGoogle, AiFillGithub } from "react-icons/ai";
+import QzoneList from "../Qzone/QzoneList";
 
 const RightSide = () => {
   return (
@@ -24,6 +25,7 @@ const RightSide = () => {
       </div>
       {/* find us/social link */}
       <FindUs />
+      <QzoneList />
     </div>
   );
 };
