@@ -4,6 +4,7 @@ import Navbar from "../../components/NavBar/Navbar";
 import HomePageLayout from "./HomePageLayout";
 
 const Home = () => {
+  document.title = "Home";
   return (
     <div>
       <Header />

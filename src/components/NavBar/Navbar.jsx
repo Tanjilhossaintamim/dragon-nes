@@ -1,5 +1,5 @@
-import { NavLink } from "react-router-dom";
-import UserImg from "../../assets/user.png";
+import { Link, NavLink } from "react-router-dom";
+import { CgProfile } from "react-icons/cg";
 
 const Navbar = () => {
   return (
@@ -17,12 +17,13 @@ const Navbar = () => {
         </li>
       </ul>
       <div className="flex items-center">
-        <div className="w-10 h-10 relative">
-          <img src={UserImg} alt="" className="w-full" />
-        </div>
-        <button className="w-36 h-11 bg-color-dark-2 text-white text-xl font-semibold ml-4">
-          Login
-        </button>
+        <CgProfile size={45} />
+
+        <Link to={"/login"}>
+          <button className="w-36 h-11 bg-color-dark-2 text-white text-xl font-semibold ml-4">
+            Login
+          </button>
+        </Link>
       </div>
     </div>
   );

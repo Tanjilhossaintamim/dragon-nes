@@ -18,15 +18,15 @@ const router = createBrowserRouter([
         path: "/news-details/:id",
         element: <NewsDetails />,
       },
-      {
-        path: "/login",
-        element: <Login />,
-      },
-      {
-        path: "/register",
-        element: <Register />,
-      },
     ],
+  },
+  {
+    path: "/login",
+    element: <Login />,
+  },
+  {
+    path: "/register",
+    element: <Register />,
   },
 ]);
 export default router;

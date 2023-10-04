@@ -1,3 +1,4 @@
+import moment from "moment";
 import PropTypes from "prop-types";
 
 const NewsAuthor = ({ author }) => {
@@ -10,7 +11,11 @@ const NewsAuthor = ({ author }) => {
           <span className="text-color-dark-2 text-[16px] font-semibold">
             {name}
           </span>
-          <span className="text-color-dark-3 text-sm">{published_date}</span>
+          <span className="text-color-dark-3 text-sm">
+            {moment(published_date, "YYYY-MM-DD HH:mm Z").format(
+              "DD MMM, YYYY - HH : MM a"
+            )}
+          </span>
         </div>
       </div>
       <div className="flex items-center gap-4">
