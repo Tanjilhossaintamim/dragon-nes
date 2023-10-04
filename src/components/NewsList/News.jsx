@@ -1,25 +1,23 @@
 import NewsAuthor from "../NewsAuthor/NewsAuthor";
-import NewsImg from "../../assets/editorsInsight3.png";
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 
-const News = () => {
+const News = ({ news }) => {
+  const { _id, title, total_view, author, image_url, details, rating } =
+    news || {};
   return (
     <div className="mb-10 rounded border border-color-dark-6">
-      <NewsAuthor />
+      <NewsAuthor author={author} />
       <div className="p-5">
         <h1 className="text-xl font-bold text-color-dark-2 leading-8 my-3">
-          Biden Pledges Nearly $3 Billion To Ukraine In Largest U.S. Military
-          Aid Package Yet
+          {title}
         </h1>
         <div className="news">
-          <img src={NewsImg} alt="" />
+          <img src={image_url} alt="" />
           <p className="text-justify text-color-dark-3 text-[16px] leading-6 mt-3">
-            Wednesday, August 24, 2022 | Tag Cloud Tags: Biden, EU, Euro,
-            Europe, Joe Biden, Military, News, Russia, Security, UK, Ukraine,
-            United States, Worthy News (Worthy News) – U.S. President Joe Biden
-            has announced nearly $3 billion in new U.S. military a...
+            {details.slice(0, 400)}...
           </p>
-          <Link className="readmorebtn" to={"/"}>
+          <Link className="readmorebtn" to={`/news-details/${_id}`}>
             Read More
           </Link>
         </div>
@@ -27,24 +25,28 @@ const News = () => {
         {/* ratting       */}
         <div className="flex items-center justify-between mt-4">
           <div className="flex items-center gap-2">
-            {Array.from({ length: 4 }, (v, k) => k).map((star, index) => (
-              <svg
-                key={index}
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-              >
-                <path
-                  fillRule="evenodd"
-                  clipRule="evenodd"
-                  d="M10.788 3.21006C11.236 2.13306 12.764 2.13306 13.212 3.21006L15.294 8.21706L20.698 8.65006C21.862 8.74306 22.334 10.1951 21.447 10.9551L17.33 14.4821L18.587 19.7551C18.858 20.8911 17.623 21.7881 16.627 21.1801L12 18.3541L7.373 21.1801C6.377 21.7881 5.142 20.8901 5.413 19.7551L6.67 14.4821L2.553 10.9551C1.666 10.1951 2.138 8.74306 3.302 8.65006L8.706 8.21706L10.788 3.21106V3.21006Z"
-                  fill="#FF8C47"
-                />
-              </svg>
-            ))}
-            <span className="text-color-dark-3 text-[16px]">4.0</span>
+            {Array.from({ length: Math.round(rating.number) }, (v, k) => k).map(
+              (star, index) => (
+                <svg
+                  key={index}
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                >
+                  <path
+                    fillRule="evenodd"
+                    clipRule="evenodd"
+                    d="M10.788 3.21006C11.236 2.13306 12.764 2.13306 13.212 3.21006L15.294 8.21706L20.698 8.65006C21.862 8.74306 22.334 10.1951 21.447 10.9551L17.33 14.4821L18.587 19.7551C18.858 20.8911 17.623 21.7881 16.627 21.1801L12 18.3541L7.373 21.1801C6.377 21.7881 5.142 20.8901 5.413 19.7551L6.67 14.4821L2.553 10.9551C1.666 10.1951 2.138 8.74306 3.302 8.65006L8.706 8.21706L10.788 3.21106V3.21006Z"
+                    fill="#FF8C47"
+                  />
+                </svg>
+              )
+            )}
+            <span className="text-color-dark-3 text-[16px]">
+              {rating.number}
+            </span>
           </div>
           <div className="flex items-center gap-5">
             <svg
@@ -65,12 +67,14 @@ const News = () => {
                 fill="#706F6F"
               />
             </svg>
-            <span className="text-color-dark-3 text-[16px]">450</span>
+            <span className="text-color-dark-3 text-[16px]">{total_view}</span>
           </div>
         </div>
       </div>
     </div>
   );
 };
-
+News.propTypes = {
+  news: PropTypes.object,
+};
 export default News;

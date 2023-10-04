@@ -4,7 +4,7 @@ import NewsCategoryList from "../NewsCategoryList/NewsCategoryList";
 
 const LeftSide = () => {
   return (
-    <div>
+    <div className="sticky top-0 grow">
       <Heading title="All Category" />
       <div className="h-16 bg-color-dark-7 flex justify-center items-center mt-5 rounded border border-color-dark-6">
         <span className="text-xl font-semibold text-color-dark-2">

@@ -1,14 +1,16 @@
-import AuthorImg from "../../assets/Ellipse 1.svg";
-const NewsAuthor = () => {
+import PropTypes from "prop-types";
+
+const NewsAuthor = ({ author }) => {
+  const { name, published_date, img } = author || {};
   return (
     <div className="h-20 bg-color-dark-7 border border-color-dark-7 flex justify-between items-center px-5 rounded-t">
       <div className="flex items-center gap-4">
-        <img src={AuthorImg} alt="" />
+        <img src={img} alt={name} className="w-10 h-10 rounded-full" />
         <div className="flex flex-col">
           <span className="text-color-dark-2 text-[16px] font-semibold">
-            Awlad Hossain
+            {name}
           </span>
-          <span className="text-color-dark-3 text-sm">2022-08-21</span>
+          <span className="text-color-dark-3 text-sm">{published_date}</span>
         </div>
       </div>
       <div className="flex items-center gap-4">
@@ -47,6 +49,9 @@ const NewsAuthor = () => {
       </div>
     </div>
   );
+};
+NewsAuthor.propTypes = {
+  author: PropTypes.object,
 };
 
 export default NewsAuthor;
