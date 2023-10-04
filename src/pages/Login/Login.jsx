@@ -12,7 +12,7 @@ const Login = () => {
         <h1 className="text-4xl font-semibold text-color-dark-2 text-center">
           Login your account
         </h1>
-        <form className="mt-20">
+        <form className="w-full px-4 lg:px-0 lg:w-auto mx-auto mt-20">
           <div className="flex flex-col gap-2 mb-4">
             <label
               className="text-xl font-semibold text-color-dark-2"

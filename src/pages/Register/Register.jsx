@@ -2,17 +2,31 @@ import { Link } from "react-router-dom";
 import Navbar from "../../components/NavBar/Navbar";
 
 const Register = () => {
+  const handelRegister = (e) => {
+    e.preventDefault();
+
+    const form = new FormData(e.currentTarget);
+    const email = form.get("email");
+    const name = form.get("name");
+    const photo = form.get("photo");
+    const password = form.get("password");
+    const check = e.target.check.checked;
+    console.log(email, name, photo, password, check);
+  };
   document.title = "Register";
   return (
     <div className="bg-color-dark-7 h-screen">
       <div className="max-w-6xl mx-auto py-16 bg-color-dark-7">
         <Navbar></Navbar>
       </div>
-      <div className="w-full lg:w-[752px] lg:h-[730px] flex flex-col justify-center items-center mx-auto bg-white">
+      <div className="w-full relative lg:w-[752px] lg:h-[730px] flex flex-col justify-center items-center mx-auto bg-white py-10">
         <h1 className="text-4xl font-semibold text-color-dark-2 text-center">
           Register your account
         </h1>
-        <form className="mt-20">
+        <form
+          className="w-full px-4 lg:px-0 lg:w-auto mx-auto mt-20"
+          onSubmit={handelRegister}
+        >
           <div className="flex flex-col gap-2 mb-4">
             <label
               className="text-xl font-semibold text-color-dark-2"
