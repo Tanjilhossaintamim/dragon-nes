@@ -3,6 +3,7 @@ import FindUs from "../FindUs/FindUs";
 import Heading from "../Heading/Heading";
 import { AiOutlineGoogle, AiFillGithub } from "react-icons/ai";
 import QzoneList from "../Qzone/QzoneList";
+import Advertarise from "../Advertarise/Advertarise";
 
 const RightSide = () => {
   return (
@@ -26,6 +27,7 @@ const RightSide = () => {
       {/* find us/social link */}
       <FindUs />
       <QzoneList />
+      <Advertarise />
     </div>
   );
 };

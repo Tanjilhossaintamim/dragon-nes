@@ -17,6 +17,7 @@ export default {
         'color-dark-6': "#E7E7E7",
         'color-dark-7': "#F3F3F3",
         'color-secondary': "#D72050",
+        'color-mixed': "rgba(5, 0, 29, 0.80)",
       }
     },
   },
