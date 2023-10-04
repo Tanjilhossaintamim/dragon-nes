@@ -1,6 +1,7 @@
 import BreakingNews from "../../components/BreakingNews/BreakingNews";
 import Header from "../../components/Header/Header";
 import Navbar from "../../components/NavBar/Navbar";
+import HomePageLayout from "./HomePageLayout";
 
 const Home = () => {
   return (
@@ -8,6 +9,7 @@ const Home = () => {
       <Header />
       <BreakingNews />
       <Navbar />
+      <HomePageLayout />
     </div>
   );
 };
