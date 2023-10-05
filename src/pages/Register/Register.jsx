@@ -15,10 +15,13 @@ const Register = () => {
     const photo = form.get("photo");
     const password = form.get("password");
     const check = e.target.check.checked;
-    console.log(email, name, photo, password, check);
-    createUser(email, password)
-      .then(() => setLoading(false))
-      .catch((error) => setError(error.message));
+    if (password.length > 7) {
+      createUser(email, password)
+        .then(() => setLoading(false))
+        .catch((error) => setError(error.message));
+    } else {
+      alert("passoword mustbe 8 character!");
+    }
   };
   document.title = "Register";
   return (
