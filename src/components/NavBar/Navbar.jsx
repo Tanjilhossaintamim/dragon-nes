@@ -27,7 +27,7 @@ const Navbar = () => {
         {user ? (
           <button
             onClick={handelLogout}
-            className="w-36 h-11 bg-color-dark-2 text-white text-xl font-semibold ml-4"
+            className="w-36 h-11 bg-emerald-800 text-white text-xl font-semibold ml-4"
           >
             Logout
           </button>
