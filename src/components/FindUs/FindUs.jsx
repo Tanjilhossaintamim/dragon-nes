@@ -1,8 +1,11 @@
+import { useContext } from "react";
 import Heading from "../Heading/Heading";
+import { AuthContext } from "../../Provider/AuthProvider";
 
 const FindUs = () => {
+  const { user } = useContext(AuthContext);
   return (
-    <div className="mt-8">
+    <div className={`${user ? "mt-0" : "mt-8"}`}>
       <Heading title="Find On Us" />
       <ul className="mt-6 h-48 border border-color-dark-6 rounded">
         <li className="h-1/3 flex items-center text-color-dark-3 text-[16px] font-medium">

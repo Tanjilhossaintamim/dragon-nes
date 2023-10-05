@@ -27,13 +27,13 @@ const Navbar = () => {
         {user ? (
           <button
             onClick={handelLogout}
-            className="w-36 h-11 bg-emerald-800 text-white text-xl font-semibold ml-4"
+            className="flex justify-center items-center w-36 h-11 bg-emerald-800 text-white text-xl font-semibold ml-4"
           >
             Logout
           </button>
         ) : (
           <Link to={"/login"}>
-            <button className="w-36 h-11 bg-color-dark-2 text-white text-xl font-semibold ml-4">
+            <button className="flex justify-center items-center w-36 h-11 bg-color-dark-2 text-white text-xl font-semibold ml-4">
               Login
             </button>
           </Link>
