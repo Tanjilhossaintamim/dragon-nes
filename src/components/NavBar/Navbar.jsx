@@ -1,7 +1,13 @@
 import { Link, NavLink } from "react-router-dom";
 import { CgProfile } from "react-icons/cg";
+import { useContext } from "react";
+import { AuthContext } from "../../Provider/AuthProvider";
 
 const Navbar = () => {
+  const { user, logOut } = useContext(AuthContext);
+  const handelLogout = () => {
+    logOut();
+  };
   return (
     <div className="flex justify-between items-center text-center mx-auto">
       <div></div>
@@ -18,12 +24,20 @@ const Navbar = () => {
       </ul>
       <div className="flex items-center">
         <CgProfile size={45} />
-
-        <Link to={"/login"}>
-          <button className="w-36 h-11 bg-color-dark-2 text-white text-xl font-semibold ml-4">
-            Login
+        {user ? (
+          <button
+            onClick={handelLogout}
+            className="w-36 h-11 bg-color-dark-2 text-white text-xl font-semibold ml-4"
+          >
+            Logout
           </button>
-        </Link>
+        ) : (
+          <Link to={"/login"}>
+            <button className="w-36 h-11 bg-color-dark-2 text-white text-xl font-semibold ml-4">
+              Login
+            </button>
+          </Link>
+        )}
       </div>
     </div>
   );

@@ -1,7 +1,20 @@
 import { Link } from "react-router-dom";
 import Navbar from "../../components/NavBar/Navbar";
+import { useContext } from "react";
+import { AuthContext } from "../../Provider/AuthProvider";
 
 const Login = () => {
+  const { signInuser } = useContext(AuthContext);
+  const handelLogin = (e) => {
+    e.preventDefault();
+    const form = new FormData(e.currentTarget);
+    const email = form.get("email");
+    const password = form.get("password");
+
+    signInuser(email, password)
+      .then((result) => console.log(result.user))
+      .catch((erro) => console.log(erro));
+  };
   document.title = "Login";
   return (
     <div className="bg-color-dark-7 h-screen">
@@ -12,7 +25,10 @@ const Login = () => {
         <h1 className="text-4xl font-semibold text-color-dark-2 text-center">
           Login your account
         </h1>
-        <form className="w-full px-4 lg:px-0 lg:w-auto mx-auto mt-20">
+        <form
+          onSubmit={handelLogin}
+          className="w-full px-4 lg:px-0 lg:w-auto mx-auto mt-20"
+        >
           <div className="flex flex-col gap-2 mb-4">
             <label
               className="text-xl font-semibold text-color-dark-2"
