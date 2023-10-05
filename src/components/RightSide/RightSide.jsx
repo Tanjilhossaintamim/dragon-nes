@@ -7,7 +7,7 @@ import Advertarise from "../Advertarise/Advertarise";
 
 const RightSide = () => {
   return (
-    <div>
+    <div className="px-4 lg:px-0">
       <Heading title="Login With" />
       {/* login buttons */}
       <div className="mt-5 flex justify-center flex-col gap-3">

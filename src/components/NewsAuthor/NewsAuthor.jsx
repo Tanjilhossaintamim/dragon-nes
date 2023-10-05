@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 const NewsAuthor = ({ author }) => {
   const { name, published_date, img } = author || {};
   return (
-    <div className="h-20 bg-color-dark-7 border border-color-dark-7 flex justify-between items-center px-5 rounded-t">
+    <div className="mx-4 lg:mx-0 h-20 bg-color-dark-7 border border-color-dark-7 flex justify-between items-center px-5 rounded-t">
       <div className="flex items-center gap-4">
         <img src={img} alt={name} className="w-10 h-10 rounded-full" />
         <div className="flex flex-col">

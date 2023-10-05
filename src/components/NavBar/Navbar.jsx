@@ -9,7 +9,7 @@ const Navbar = () => {
     logOut();
   };
   return (
-    <div className="flex justify-between items-center text-center mx-auto">
+    <div className="flex flex-col md:flex-row gap-6 md:gap-0 justify-between items-center text-center mx-auto">
       <div></div>
       <ul className="flex items-center space-x-7 text-color-dark-3 text-lg">
         <li>

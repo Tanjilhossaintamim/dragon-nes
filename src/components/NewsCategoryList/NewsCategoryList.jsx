@@ -9,7 +9,7 @@ const NewsCategoryList = () => {
       .then((data) => setCategories(data));
   }, []);
   return (
-    <div className="grid place-content-center gap-8 mt-8">
+    <div className="px-4 lg:px-0 grid place-content-center gap-8 mt-8">
       {categories.map((category) => (
         <NewsCategory title={category.name} key={category.id} />
       ))}

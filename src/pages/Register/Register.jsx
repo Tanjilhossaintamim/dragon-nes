@@ -27,7 +27,7 @@ const Register = () => {
         <Navbar></Navbar>
       </div>
       <div className="w-full relative lg:w-[752px] lg:h-[730px] flex flex-col justify-center items-center mx-auto bg-white py-10">
-        <h1 className="text-4xl font-semibold text-color-dark-2 text-center">
+        <h1 className="text-2xl md:text-4xl font-semibold text-color-dark-2 text-center">
           Register your account
         </h1>
         {error && <p className="text-red-700">{error}</p>}

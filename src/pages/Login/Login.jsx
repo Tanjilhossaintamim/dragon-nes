@@ -31,7 +31,7 @@ const Login = () => {
         <Navbar></Navbar>
       </div>
       <div className="w-full lg:w-[752px] lg:h-[700px] flex flex-col justify-center items-center mx-auto bg-white">
-        <h1 className="text-4xl font-semibold text-color-dark-2 text-center">
+        <h1 className="text-2xl md:text-4xl font-semibold text-color-dark-2 text-center">
           Login your account
         </h1>
         {error && <p className="text-red-700">{error}</p>}

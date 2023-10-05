@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 const Qzone = ({ image, title }) => {
   return (
-    <div className="my-5 mb-10">
+    <div className="py-5 mb-10">
       <div className="h-[194px] rounded border border-color-dark-6 bg-white relative">
         <div className="h-[194px] border rounded border-color-dark-6 bg-white -rotate-6 relative">
           <div className="h-[194px] rotate-6 p-3">

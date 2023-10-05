@@ -6,7 +6,6 @@ const Middle = () => {
     <div className="lg:col-span-2">
       <Heading title="Dragon News Home" />
       <NewsList />
-      
     </div>
   );
 };
