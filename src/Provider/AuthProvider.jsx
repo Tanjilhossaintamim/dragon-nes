@@ -12,6 +12,7 @@ export const AuthContext = createContext(null);
 
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
+  const [error, setError] = useState("");
   const [loading, setLoading] = useState(true);
   const createUser = (email, password) => {
     setLoading(true);
@@ -34,7 +35,16 @@ const AuthProvider = ({ children }) => {
     });
     return () => subscribe();
   }, []);
-  const authValue = { createUser, signInuser, logOut, user, loading };
+  const authValue = {
+    createUser,
+    signInuser,
+    logOut,
+    user,
+    loading,
+    setLoading,
+    error,
+    setError,
+  };
   return (
     <AuthContext.Provider value={authValue}>{children}</AuthContext.Provider>
   );

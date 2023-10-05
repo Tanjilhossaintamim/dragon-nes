@@ -4,7 +4,7 @@ import { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 
 const Login = () => {
-  const { signInuser } = useContext(AuthContext);
+  const { signInuser, setLoading, error, setError } = useContext(AuthContext);
   const { state } = useLocation();
   const navigate = useNavigate();
 
@@ -13,12 +13,18 @@ const Login = () => {
     const form = new FormData(e.currentTarget);
     const email = form.get("email");
     const password = form.get("password");
+    setError("");
 
     signInuser(email, password)
       .then(() => navigate(state ? state : "/"))
-      .catch((erro) => console.log(erro));
+      .catch((err) => {
+        setError(err.message);
+        setLoading(false);
+        console.log(err.message);
+      });
   };
   document.title = "Login";
+
   return (
     <div className="bg-color-dark-7 h-screen">
       <div className="max-w-6xl mx-auto py-16 bg-color-dark-7">
@@ -28,6 +34,7 @@ const Login = () => {
         <h1 className="text-4xl font-semibold text-color-dark-2 text-center">
           Login your account
         </h1>
+        {error && <p className="text-red-700">{error}</p>}
         <form
           onSubmit={handelLogin}
           className="w-full px-4 lg:px-0 lg:w-auto mx-auto mt-20"

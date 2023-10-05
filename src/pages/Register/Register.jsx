@@ -4,9 +4,10 @@ import { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 
 const Register = () => {
-  const { createUser } = useContext(AuthContext);
+  const { createUser, setLoading, error, setError } = useContext(AuthContext);
   const handelRegister = (e) => {
     e.preventDefault();
+    setError("");
 
     const form = new FormData(e.currentTarget);
     const email = form.get("email");
@@ -16,8 +17,8 @@ const Register = () => {
     const check = e.target.check.checked;
     console.log(email, name, photo, password, check);
     createUser(email, password)
-      .then((res) => console.log(res.user))
-      .catch((error) => console.log(error));
+      .then(() => setLoading(false))
+      .catch((error) => setError(error.message));
   };
   document.title = "Register";
   return (
@@ -29,6 +30,7 @@ const Register = () => {
         <h1 className="text-4xl font-semibold text-color-dark-2 text-center">
           Register your account
         </h1>
+        {error && <p className="text-red-700">{error}</p>}
         <form
           className="w-full px-4 lg:px-0 lg:w-auto mx-auto mt-20"
           onSubmit={handelRegister}
